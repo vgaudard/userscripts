@@ -12,7 +12,7 @@
 
 
 
-var acceskeyEl = document.querySelectorAll("[accesskey]");
+var accesskeyEl = document.querySelectorAll("[accesskey]");
 
 for (var i = 0; i < accesskeyEl.length; i++) {
     accesskeyEl[i].removeAttribute("accesskey");
