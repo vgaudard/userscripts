@@ -10,7 +10,7 @@
 /* jshint -W097 */
 'use strict';
 
-function cleanYoutube() {
+function clearYoutube() {
     var classesToDelete = ["addto-watch-later-button", "yt-uix-menu", "notifications-container"];
     var idsToDelete = ["trending-guide-item", "VLWL-guide-item", "create_channel-guide-item", "gh-navitem-trending"];
 
@@ -28,9 +28,10 @@ function cleanYoutube() {
 
 
     document.querySelector("#guide-container > div > ul > li:nth-child(2)").remove();
+    alert("ok");
 }
 
-
+clearYoutube();
 
 // Watch for page change
 var target = document.querySelector('#content');
