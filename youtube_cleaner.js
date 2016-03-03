@@ -28,7 +28,6 @@ function clearYoutube() {
 
 
     document.querySelector("#guide-container > div > ul > li:nth-child(2)").remove();
-    alert("ok");
 }
 
 clearYoutube();
