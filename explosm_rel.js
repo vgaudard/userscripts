@@ -3,7 +3,7 @@
 // @version      0.1
 // @description  Add rel attributes to next and previous elements, thus allowing vimium shortcuts
 // @author       You
-// @match        http://explosm.net/comics/*
+// @match        http://explosm.net/*
 // @grant        none
 // ==/UserScript==
 /* jshint -W097 */
