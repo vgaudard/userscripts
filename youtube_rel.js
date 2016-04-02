@@ -16,7 +16,7 @@ function addYoutubeRel() {
 addYoutubeRel();
 
 // Watch for page change
-var target = document.querySelector('#content');
+var target = document.querySelector('body');
 var observer = new MutationObserver(function(mutations) {
   mutations.forEach(addYoutubeRel);
 });
