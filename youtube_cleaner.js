@@ -3,8 +3,7 @@
 // @version      0.1
 // @description  Remove useless "Watch later" buttons, as well as a few other items
 // @author       vgaudard
-// @match        https://www.youtube.com/*
-// @match        http://www.youtube.com/*
+// @match        *://www.youtube.com/*
 // @grant        none
 // ==/UserScript==
 /* jshint -W097 */
@@ -19,23 +18,31 @@ function clearYoutube() {
     for (var i = 0; i < classesToDelete.length; i++) {
         while (item = document.getElementsByClassName(classesToDelete[i])[0]) {
             item.remove();
+            
         }
     }
 
     for (var i = 0; i < idsToDelete.length; i++) {
-        document.getElementById(idsToDelete[i]).remove();
+        var el = document.getElementById(idsToDelete[i]);
+        if (el)
+            el.remove();
     }
 
 
-    document.querySelector("#guide-container > div > ul > li:nth-child(2)").remove();
+    var elems = document.querySelectorAll("#guide-container > div > ul > li");
+    var index = 0;
+    for(var i=0; i < elems.length; i++ ) {
+        if (elems[i].innerHTML.indexOf("Library") != -1)
+            elems[i].remove();
+    }
 }
 
 clearYoutube();
 
 // Watch for page change
-var target = document.querySelector('#content');
+var target = document.querySelector('body');
 var observer = new MutationObserver(function(mutations) {
-  mutations.forEach(cleanYoutube);    
+  mutations.forEach(clearYoutube);    
 });
-var config = { attributes: false, childList: true, characterData: false };
+var config = { attributes: true, childList: true, characterData: true };
 observer.observe(target, config);
